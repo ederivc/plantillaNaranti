@@ -30,7 +30,8 @@
 
     .navbar,
     .topbar,
-    .espectacularesHeader {
+    .espectacularesHeader,
+    .cards__container {
       max-width: 2000px;
       margin: auto;
     }
@@ -90,16 +91,111 @@
     }
 
     .cards__container {
-      /* border: 1px solid red; */
+      padding-right: 4rem;
+      padding-left: 4rem;
     }
 
-    .col {
-      /* border: 1px solid green; */
+    .card h5 {
+      font-size: 1.1rem;
+    }
+
+    .card-btn {
+      width: auto;
+      max-width: 180px;
+      cursor: pointer;
+    }
+
+    .card-btn button {
+      width: 100%;
+      padding: 0.3rem 1.5rem;
+      background-color: #fe7f31;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      font-weight: 500;
+      font-size: 1rem;
+      position: relative;
+      z-index: 1;
+      outline: none;
+      border: none;
+      border-radius: 3px;
+    }
+
+    .card-btn button::before {
+      content: "";
+      z-index: -1;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: #fb6c0d;
+      transform-origin: center right;
+      transform: scaleX(0);
+      transition: transform 0.25s ease-in-out;
+      border-radius: 3px;
+    }
+
+    .card-btn button:hover::before {
+      transform-origin: center left;
+      transform: scaleX(1);
+    }
+
+    @media (max-width: 1200px) {
+      .cards__container {
+        padding-right: 3rem;
+        padding-left: 3rem;
+      }
     }
 
     @media (max-width: 992px) {
       .navbar {
         margin-top: 0;
+      }
+
+      .cards__container {
+        padding-right: 4rem;
+        padding-left: 4rem;
+      }
+
+      .espectacularesHeader {
+        justify-content: center;
+        padding-left: 0;
+        font-size: 1.05rem;
+      }
+    }
+
+    @media (max-width: 800px) {
+      .cards__container {
+        padding-left: 2rem;
+        padding-right: 2rem;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .espectacularesLocation {
+        padding-right: 1rem;
+        padding-left: 1rem;
+        text-align: center;
+      }
+
+      .navWrapper {
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+
+      .card {
+        width: 25rem !important;
+      }
+
+      @media (max-width: 400px) {
+        .espectacularesHeader {
+          height: auto;
+        }
+
+        .espectacularesLocation {
+          padding: 1.5rem 1rem;
+        }
       }
     }
   </style>
@@ -139,13 +235,16 @@
         <div class="collapse navbar-collapse" id="NavToggle">
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link">Home</a>
+              <a class="nav-link" href="#">Servicios</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
+              <a class="nav-link" href="#">Cobertura</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link">Link</a>
+              <a class="nav-link" href="#">Galería</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Blog</a>
             </li>
           </ul>
         </div>
@@ -153,20 +252,27 @@
     </nav>
 
     <section class="container-fluid espectacularesHeader">
-      <div>
+      <div class="espectacularesLocation">
         <i class="fas fa-map-marker-alt"></i>
         <span
           >Consulta nuestros espectaculares en
           <strong>Morelia, Michoacán</strong></span
         >
       </div>
-      <span>Juntos Somos Espectaculares</span>
+      <span class="d-none d-lg-block">Juntos Somos Espectaculares</span>
     </section>
 
     <section class="cards">
-      <div class="container cards__container">
-        <div class="row p-3">
-          <div class="col d-flex justify-content-center">
+      <div class="container-fluid cards__container">
+        <div class="row p-0 p-lg-3">
+          <div
+            class="
+              col col-sm-6 col-lg-3
+              mb-3 mb-lg-0
+              d-flex
+              justify-content-center
+            "
+          >
             <div class="card" style="width: 20rem">
               <img
                 src="https://naranti.mx/wp-content/uploads/2021/06/Telcel-corta.jpg"
@@ -175,65 +281,132 @@
               />
               <div class="card-body">
                 <h5 class="card-title">Special title treatment</h5>
-                <a href="#" class="btn btn-primary btn-sm">Go somewhere</a>
+                <div class="card-btn">
+                  <button>Conocer más</button>
+                </div>
               </div>
             </div>
           </div>
-          <div class="col d-flex justify-content-center">
+          <div
+            class="
+              col-12 col-sm-6 col-lg-3
+              mb-3 mb-lg-0
+              d-flex
+              justify-content-center
+            "
+          >
             <div class="card" style="width: 20rem">
               <img
-                src="https://naranti.mx/wp-content/uploads/2021/06/Telcel-corta.jpg"
+                src="https://naranti.mx/wp-content/uploads/2020/04/Kaitori.jpg"
                 class="card-img-top"
                 alt="..."
               />
               <div class="card-body">
                 <h5 class="card-title">Special title treatment</h5>
-                <a href="#" class="btn btn-primary btn-sm">Go somewhere</a>
+                <div class="card-btn">
+                  <button>Conocer más</button>
+                </div>
               </div>
             </div>
           </div>
-          <div class="col d-flex justify-content-center">
+          <div
+            class="
+              col-12 col-sm-6 col-lg-3
+              mb-3 mb-lg-0
+              d-flex
+              justify-content-center
+            "
+          >
             <div class="card" style="width: 20rem">
               <img
-                src="https://naranti.mx/wp-content/uploads/2021/06/Telcel-corta.jpg"
+                src="https://naranti.mx/wp-content/uploads/2021/06/NAR401_001_084_M.jpg"
                 class="card-img-top"
                 alt="..."
               />
               <div class="card-body">
                 <h5 class="card-title">Special title treatment</h5>
-                <a href="#" class="btn btn-primary btn-sm">Go somewhere</a>
+                <div class="card-btn">
+                  <button>Conocer más</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="
+              col-12 col-sm-6 col-lg-3
+              mb-3 mb-lg-0
+              d-flex
+              justify-content-center
+            "
+          >
+            <div class="card" style="width: 20rem">
+              <img
+                src="https://naranti.mx/wp-content/uploads/2021/01/NAR401-001-123-E.jpg"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body">
+                <h5 class="card-title">Special title treatment</h5>
+                <div class="card-btn">
+                  <button>Conocer más</button>
+                </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="row p-3">
-          <div class="col d-flex justify-content-center">
+        <div class="row p-0 p-lg-3">
+          <div
+            class="
+              col-12 col-sm-6 col-lg-3
+              mb-3 mb-lg-0
+              d-flex
+              justify-content-center
+            "
+          >
             <div class="card" style="width: 20rem">
               <img
-                src="https://naranti.mx/wp-content/uploads/2021/06/Telcel-corta.jpg"
+                src="https://naranti.mx/wp-content/uploads/2020/11/Tecateweb.png"
                 class="card-img-top"
                 alt="..."
               />
               <div class="card-body">
                 <h5 class="card-title">Special title treatment</h5>
-                <a href="#" class="btn btn-primary btn-sm">Go somewhere</a>
+                <div class="card-btn">
+                  <button>Conocer más</button>
+                </div>
               </div>
             </div>
           </div>
-          <div class="col d-flex justify-content-center">
+          <div
+            class="
+              col-12 col-sm-6 col-lg-3
+              mb-3 mb-lg-0
+              d-flex
+              justify-content-center
+            "
+          >
             <div class="card" style="width: 20rem">
               <img
-                src="https://naranti.mx/wp-content/uploads/2021/06/Telcel-corta.jpg"
+                src="https://naranti.mx/wp-content/uploads/2021/06/Unla2.jpg"
                 class="card-img-top"
                 alt="..."
               />
               <div class="card-body">
                 <h5 class="card-title">Special title treatment</h5>
-                <a href="#" class="btn btn-primary btn-sm">Go somewhere</a>
+                <div class="card-btn">
+                  <button>Conocer más</button>
+                </div>
               </div>
             </div>
           </div>
-          <div class="col d-flex justify-content-center">
+          <div
+            class="
+              col-12 col-sm-6 col-lg-3
+              mb-3 mb-lg-0
+              d-flex
+              justify-content-center
+            "
+          >
             <div class="card" style="width: 20rem">
               <img
                 src="https://naranti.mx/wp-content/uploads/2021/06/Telcel-corta.jpg"
@@ -242,7 +415,31 @@
               />
               <div class="card-body">
                 <h5 class="card-title">Special title treatment</h5>
-                <a href="#" class="btn btn-primary btn-sm">Go somewhere</a>
+                <div class="card-btn">
+                  <button>Conocer más</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="
+              col-12 col-sm-6 col-lg-3
+              mb-3 mb-lg-0
+              d-flex
+              justify-content-center
+            "
+          >
+            <div class="card" style="width: 20rem">
+              <img
+                src="https://naranti.mx/wp-content/uploads/2021/06/NAR402-001-054-A.jpg"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body">
+                <h5 class="card-title">Special title treatment</h5>
+                <div class="card-btn">
+                  <button>Conocer más</button>
+                </div>
               </div>
             </div>
           </div>
